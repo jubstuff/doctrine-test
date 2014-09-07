@@ -17,3 +17,10 @@ $stmt = $conn->prepare($sql);
 $stmt->bindValue(1, 10);
 $stmt->execute();
 
+// query with named placeholder
+$sql = "SELECT * FROM actor WHERE actor_id = :id";
+$stmt = $conn->prepare($sql);
+$stmt->bindValue('id', 9);
+$stmt->execute();
+
+var_dump($stmt->fetch());
