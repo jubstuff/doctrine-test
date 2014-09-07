@@ -23,4 +23,13 @@ $stmt = $conn->prepare($sql);
 $stmt->bindValue('id', 9);
 $stmt->execute();
 
-var_dump($stmt->fetch());
+// query with a parameters list
+$sql = "SELECT * FROM actor WHERE actor_id IN (?)";
+$stmt = $conn->executeQuery(
+    $sql,
+    array(array(1, 2, 4, 6, 7, 9)),
+    array(\Doctrine\DBAL\Connection::PARAM_INT_ARRAY)
+);
+
+
+var_dump($stmt->fetchAll());
