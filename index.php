@@ -31,5 +31,3 @@ $stmt = $conn->executeQuery(
     array(\Doctrine\DBAL\Connection::PARAM_INT_ARRAY)
 );
 
-
-var_dump($stmt->fetchAll());
